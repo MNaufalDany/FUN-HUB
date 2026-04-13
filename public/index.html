@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameScope</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-white min-h-screen">
+
+  <div class="page-bg"></div>
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-6 py-8 md:py-10">
+
+    <!-- Top Heading -->
+    <section class="mb-8">
+      <div class="top-badge">FUN HUB</div>
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mt-4">
+        <div>
+          <h1 class="main-title text-4xl md:text-6xl font-extrabold leading-tight">
+            Discover Game Worlds
+          </h1>
+          <p class="text-slate-300 mt-4 max-w-2xl text-base md:text-lg">
+            Explore popular titles, search games instantly, and load real-time data from the RAWG public API.
+          </p>
+        </div>
+
+        <div class="source-box">
+          Data source:
+          <a href="https://rawg.io/" target="_blank" class="source-link">RAWG</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <section class="glass-box search-panel mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_180px_140px] gap-4">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search games... e.g. God of War"
+          class="custom-input"
+        />
+
+        <select id="genreSelect" class="custom-input">
+          <option value="">All Genres</option>
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="rpg">RPG</option>
+          <option value="shooter">Shooter</option>
+          <option value="sports">Sports</option>
+        </select>
+
+        <button id="searchBtn" class="search-btn">Search</button>
+      </div>
+    </section>
+
+    <!-- Recommendation Slider -->
+    <section class="mb-10">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Recommended Picks</h2>
+          <p class="section-subtitle">Featured games with a more immersive look</p>
+        </div>
+
+        <div class="slider-controls">
+          <button id="prevSlide" class="slide-btn" aria-label="Previous slide">‹</button>
+          <button id="nextSlide" class="slide-btn" aria-label="Next slide">›</button>
+        </div>
+      </div>
+
+      <div class="slider-shell">
+        <div id="featuredSlider" class="featured-slider">
+          <!-- slider items injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Status -->
+    <section class="mb-5">
+      <p id="statusText" class="text-slate-300 text-sm md:text-base">
+        Showing popular games...
+      </p>
+    </section>
+
+    <!-- Loading -->
+    <section id="loading" class="hidden mb-6">
+      <div class="glass-box loading-box">
+        <div class="loader mx-auto mb-3"></div>
+        <p class="text-slate-300">Loading game data...</p>
+      </div>
+    </section>
+
+    <!-- Game List -->
+    <section>
+      <div class="section-head mb-5">
+        <div>
+          <h2 class="section-title">Game Library</h2>
+          <p class="section-subtitle">Live game cards loaded from the API</p>
+        </div>
+      </div>
+
+      <div id="gameList" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- cards injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
